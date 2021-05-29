@@ -1,38 +1,92 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  background-image: linear-gradient(rgb(37, 233, 125), #738572);
   min-height: 100vh;
+}
+
+.front-page{
+  display: grid;
+  grid-template-columns: 4fr 2fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.front-page .left-side {
+
+  grid-column: 1;
+  grid-row: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  padding: 30px;
+
+}
+.front-page .right-side {
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
 }
 
-.App-link {
-  color: #61dafb;
+.front-page .right-side img{
+  max-width: 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.left-side p{
+  font-weight: bold;
 }
+
+.page-container nav{
+  border-bottom: 5px solid rgb(207, 19, 19);
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  background-color: #ac903c;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.content-container{
+  padding-top: 80px;
+}
+
+.gallery {
+	display: grid;
+	grid-template-columns: 4fr 2fr;
+}
+
+.gallery-grid{
+  grid-column: 1;
+	grid-row: 1;
+  /* max-width: 60%; */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(auto-fill, 200px);
+  grid-row-gap: 1em;
+  grid-column-gap: 0.2em;
+}
+.gallery-item img {
+  object-fit: cover;
+  width: 300px;
+  height: 200px;
+}
+.gallery-grid li {
+  list-style-type: none;
+}
+/* span.dot {
+  height: 0.6em;
+  width: 0.6em;
+  border-radius: 50%;
+  display: inline-block;
+  border: 1px solid black;
+  margin-right: 0.5em;
+  transition: background-color 400ms;
+} */
+
+/* .active-nav-class span.dot{
+  background-color: rgb(255, 133, 255);
+} */
+

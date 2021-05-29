@@ -1,25 +1,27 @@
-import logo from './logo.svg';
+
+import React, { useEffect, useState } from 'react';
 import './App.css';
+import HeaderContainer from './components/HeaderContainer';
 
 function App() {
-  return (
+
+  useEffect(() => {
+    async function getHamsters() {
+        const response = await fetch("/hamsters", { method: "GET" });
+        const data = await response.json();
+        setHamsters(data);
+    }
+
+    getHamsters();
+}, []);
+
+const [hamsters, setHamsters] = useState([]);
+
+return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <HeaderContainer hamsterList={hamsters} />
     </div>
-  );
+);
 }
 
 export default App;
