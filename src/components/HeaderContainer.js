@@ -11,28 +11,21 @@ import Gallery from './Gallery/Gallery';
 import Statistics from './Statistics/Statistics';
 
 const HeaderContainer = ({ hamsterList }) => {
-    const linkStyle = {
-        marginRight: "2rem",
-        textDecoration: "none",
-        color: "white",
-        fontWeight: "bold"
-
-    };
+   
     return (
-        <div className="page-container">
+        <div className="header-container">
             <Router>
-                <nav>
+                <nav >
                     <div>
-                        <NavLink style={linkStyle} to="/" ><strong>HAMSTER WAR</strong></NavLink>
-                    </div>
-                    <div className="nav-links">
-                        <NavLink style={linkStyle} to="/battle">Battle</NavLink>
+                        <NavLink to="/" className = "box">Hamster War</NavLink>
+            
+                        <NavLink   className = "box" to="/battle">Battle</NavLink>
 
-                        <NavLink style={linkStyle} to="/gallery">Gallery</NavLink>
+                        <NavLink className = "box" to="/gallery">Gallery</NavLink>
 
-                        <NavLink style={linkStyle} to="/statistics">Statistics</NavLink>
+                        <NavLink className = "box" to="/statistics">Statistics</NavLink>
 
-                        <NavLink style={linkStyle} to="/history" >History</NavLink>
+                        <NavLink className = "box" to="/history" >History</NavLink>
                     </div>
                 </nav>
                 <div className="content-container">

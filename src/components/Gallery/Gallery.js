@@ -7,7 +7,7 @@ const Gallery = ({hamsterList}) => {
     return (
     <div className = "gallery">
 
-        <div className = "gallery-grid">
+        <div className = "gallery-object">
              {hamsterList.map((hamster) =>
                     <GalleryContent
                         key={hamster.id}
@@ -17,11 +17,16 @@ const Gallery = ({hamsterList}) => {
                 )}
         </div>
 
-                <div>
-                    <h3>Det här är {selectedItem.name}!</h3>
-
-                    <p>{selectedItem.name} är {selectedItem.age} år gammal och är en liten hamster som älskar att {selectedItem.loves}. Om {selectedItem.name} själv får välja så blir det {selectedItem.favFood} till middag.</p>
+                <div className="display-details">
+                    <h2>This is {selectedItem.name}</h2>
+                    <ul>
+                        <li>Loves : {selectedItem.loves}</li>
+                        <li>{selectedItem.name} is {selectedItem.age} years old</li>
+                        <li>Favorite Food : {selectedItem.favFood}</li>
+                    </ul>
+                   
                 </div>
+       
 
         </div>
     );
