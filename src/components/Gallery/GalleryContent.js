@@ -1,8 +1,48 @@
+import axios from 'axios';
 import React from 'react';
 
-const GalleryContent = ({ hamster, displayDetails }) => {
+const GalleryContent = ({ hamster}) => {
 
-    // const [selectedItem, setSelectedItem] = useState("");
+    function deleteHamster() {
+        axios.delete(`/hamsters/${hamster.id}`)
+            .then(response => console.log(response));
+            alert("Hamster Deleted Successfully")
+    }
+
+    return (
+
+        <div
+            // onClick={() => displayDetails(hamster)}
+            className="gallery-content">
+            <h3>{hamster.name}</h3>
+            <img
+                src={`/img/${hamster.imgName}`}
+                alt=""
+            />
+            <div className = "hamster-details">
+                    <ul>
+                        <li>Loves : {hamster.loves}</li>
+                        <li>{hamster.name} is {hamster.age} years old</li>
+                        <li>Favorite Food : {hamster.favFood}</li>
+                    </ul>
+                <div id="erase-btn" onClick={() => deleteHamster()}>
+                    <button>Delete {hamster.name}</button>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        
+    );
+};
+
+export default GalleryContent;
+
+
+
+// const [selectedItem, setSelectedItem] = useState("");
 
     // function changeSelected() {
     //     if (selectedItem){
@@ -23,23 +63,7 @@ const GalleryContent = ({ hamster, displayDetails }) => {
     //     </div>
     // )
 
-
-    return (
-
-        <div
-            onClick={() => displayDetails(hamster)}
-            className="gallery-content">
-            <h3>{hamster.name}</h3>
-            <img
-                src={` /img/${hamster.imgName}`}
-                alt=""
-            />
-
-        </div>
-
-
-
-        //     <div onMouseEnter={changeSelected} onMouseLeave={changeSelected} className="gallery-item">
+    //     <div onMouseEnter={changeSelected} onMouseLeave={changeSelected} className="gallery-item">
         //     {selectedItem ? <div >
         //         <strong>{hamster.name}</strong>
         //     </div> : <img
@@ -51,7 +75,3 @@ const GalleryContent = ({ hamster, displayDetails }) => {
         //         : <span></span>
         //     }</div>
         // </div>
-    );
-};
-
-export default GalleryContent;

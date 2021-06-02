@@ -6,6 +6,7 @@ import {
     NavLink
 } from "react-router-dom";
 import Battle from './Battle/Battle';
+// import Battle1 from './Battle/Battle1';
 import FrontPage from './FrontPage';
 import Gallery from './Gallery/Gallery';
 import Statistics from './Statistics/Statistics';

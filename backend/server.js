@@ -4,7 +4,7 @@ const cors = require('cors')
 const path = require('path')
 
 const hamsters = require('./routes/hamsters')
-// const matches = require('./routes/matches')
+const matches = require('./routes/matches')
 // const matchWinner = require('./routes/matchWinner')
 // const winner = require('./routes/winner')
 // const loser = require('./routes/loser')
@@ -30,7 +30,7 @@ app.use("./img", express.static(imageFolder));
 // REST API
 
 app.use("/hamsters", hamsters);
-// app.use('/matches',matches);
+app.use("/matches", matches);
 // app.use('/matchWinner', matchWinner);
 // app.use('/winner', winner);
 // app.use('/loser',loser);

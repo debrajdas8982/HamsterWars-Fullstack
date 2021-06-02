@@ -1,0 +1,31 @@
+.display-winner p{
+    font-weight: bold;
+}
+.battle-winner{
+
+    display: grid;
+    grid-template-rows: 1fr auto 1fr;
+    grid-template-columns: 1fr auto 1fr;
+    grid-gap: 2em;
+}
+
+.battle-winner main {
+    display: flex;
+    flex-direction: row;
+    grid-row: 2;
+    grid-column: 2;
+    gap: 2em;
+}
+
+.display-winner {
+    border: 3px solid rgb(16, 26, 168);
+    text-align: left;
+    cursor: pointer;
+
+    /* background-image: linear-gradient(rgb(243, 217, 255), #ffdd79); */
+}
+ .display-winner img {
+     object-fit: cover;
+     width: 500px;
+     height:350px;
+ }

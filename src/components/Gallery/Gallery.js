@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import GalleryContent from './GalleryContent';
 
 const Gallery = ({hamsterList}) => {
 
-    const [selectedItem, setSelectedItem] = useState({})
+   
     return (
     <div className = "gallery">
 
@@ -12,18 +12,18 @@ const Gallery = ({hamsterList}) => {
                     <GalleryContent
                         key={hamster.id}
                         hamster={hamster}
-                        displayDetails={setSelectedItem}
+                        
                     />
                 )}
         </div>
 
                 <div className="display-details">
-                    <h2>This is {selectedItem.name}</h2>
-                    <ul>
+                    <h1>GALLERY</h1>
+                    {/* <ul>
                         <li>Loves : {selectedItem.loves}</li>
                         <li>{selectedItem.name} is {selectedItem.age} years old</li>
                         <li>Favorite Food : {selectedItem.favFood}</li>
-                    </ul>
+                    </ul> */}
                    
                 </div>
        
