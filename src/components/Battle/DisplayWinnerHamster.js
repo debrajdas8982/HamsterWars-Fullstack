@@ -1,22 +1,37 @@
-// import axios from 'axios';
-import React from 'react';
+import React, { useState } from 'react';
 import './Battle.css';
+import BattleNotification from './BattleNotification';
 
-const DisplayWinnerHamster = ({ hamster, patch, compId }) => {
+const DisplayWinnerHamster = ({ hamster, patch, compId, showGame }) => {
 
-  
+    const [formStatus, setFormStatus] = useState(false);
+
+   
 
     let description;
     if (hamster) {
-        description = <div id = {compId} className="display-winner" onClick={(e) => patch(e)}>
+        description = <div id = {compId} className="display-winner" onClick={(e) => { patch(e); setFormStatus(true);}}>
+
+            {formStatus ? <BattleNotification name={hamster.name} setForm={setFormStatus}></BattleNotification> : (null)}
             <h2>{hamster.name}</h2>
             <img src={`/img/${hamster.imgName}`}
-                alt="" />
-                <p>Age: {hamster.age}</p>
-                <p> Favorite Food: {hamster.favFood}</p>
-                <p>Loves: {hamster.loves}</p>
-                <p>wins: {hamster.wins} games {hamster.games} defeats {hamster.defeats}</p>
-            
+                alt="" 
+                onError={(e) => { e.target.onerror = null; e.target.src = `${hamster.imgName}` }}
+                />
+
+                {showGame ? <strong>
+                <ul className="game-details">
+                    <li>No of Matches: {hamster.games}</li>
+                    <li>Winner: {hamster.wins}</li>
+                    <li>Loser: {hamster.defeats}</li>
+                </ul>
+            </strong> : <strong>
+                <ul className="hamster-details">
+                    <li>Age: {hamster.age} year</li>
+                    <li>Favorite Food: {hamster.favFood}</li>
+                    <li>Loves at: {hamster.loves}</li>
+                </ul>
+            </strong>}            
 
         </div>;
     } else {

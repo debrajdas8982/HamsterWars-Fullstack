@@ -84,8 +84,6 @@
 }
 
 .gallery .display-details {
-	border-left: 3px solid black;
-	/* background-image: linear-gradient(rgb(20, 18, 20), #ffdd79); */
 	grid-column: 2;
 	grid-row: 1;
 	display: flex;
@@ -142,16 +140,84 @@
   width: 300px;
   height: 200px;
 }
-.display-details{
-  margin-left: 20px;
-}
+
 
 button{
-  color:rgb(207, 19, 19);
+  color:rgb(117, 131, 168);
+  background-color: rgb(43, 17, 17);
   margin-left: 80px;
   border-radius: 5px;
   height: 30px;
   border: 1px solid black;
+}
+
+.input-form {
+  border: 2px solid black;
+  padding: 2em;
+  background-color: blueviolet;
+}
+
+.input-form .row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-form .input-fields {
+  width: 24ch;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  justify-content: flex-end;
+}
+
+.input-form .input-fields input {
+  background-color:#faeee7;
+  outline: none;
+  height: 2em;
+  color:  #594a4e;
+  font-weight: 600;
+}
+.input-fields label {
+  font-size: 20px;
+  margin-bottom: 1em;
+  text-align: left;
+  font-weight: 600;
+}
+.input-form .img-holder {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1em;
+  border: 1px solid #33272a;
+  height: 160px;
+  width: 160px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-form .img-holder img {
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+  border-radius: 5%;
+}
+
+.input-form button {
+  font-size: 1.1em;
+  width: 200px;
+  height: 2em;
+  border-radius: .5em;
+  letter-spacing: 0.1em;
+  background-color: #1194e0;
+  margin-top: 2em;
+  color:rgb(43, 17, 17);
+  font-weight: bold;
+}
+
+.input-form button:hover {
+  width: 260px;
+  letter-spacing: 0.4em;
 }
 
 
