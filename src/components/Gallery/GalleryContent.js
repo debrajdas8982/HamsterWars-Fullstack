@@ -13,7 +13,7 @@ const GalleryContent = ({ hamster, alert, alertMessage}) => {
     }
 
     function setAlert() {
-        alertMessage(`${hamster.name} do u want to delete from Database.`)
+        alertMessage(`${hamster.name} Do u want to delete from Database.`)
         alert(true)
     }
 

@@ -17,9 +17,9 @@ const WinList = ({loser}) => {
     }, [loser])
     return (
         <div>
-           <span>
-            {name ? <span className="won-over">{name}</span> : null}
-        </span> 
+           
+            {name ? <span className="win-over">{name}</span> : null}
+        
         </div>
     );
 };

@@ -5,9 +5,9 @@ const path = require('path')
 
 const hamsters = require('./routes/hamsters')
 const matches = require('./routes/matches')
-// const matchWinner = require('./routes/matchWinner')
-// const winner = require('./routes/winner')
-// const loser = require('./routes/loser')
+const matchWinner = require('./routes/matchWinner')
+const winner = require('./routes/winner')
+const loser = require('./routes/loser')
 
 const PORT = process.env.PORT || 2000
 const buildFolder = path.join(__dirname, "../build");
@@ -31,9 +31,9 @@ app.use("./img", express.static(imageFolder));
 
 app.use("/hamsters", hamsters);
 app.use("/matches", matches);
-// app.use('/matchWinner', matchWinner);
-// app.use('/winner', winner);
-// app.use('/loser',loser);
+app.use('/matchWinner', matchWinner);
+app.use('/winner', winner);
+app.use('/loser',loser);
 
 app.get('*',(req,res)=>{
 	res.sendFile(path.join(__dirname, "../build/index.html"))
