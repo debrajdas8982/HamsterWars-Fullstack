@@ -1,7 +1,10 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useState } from 'react';
+import WinList from './WinList';
 
 const GalleryContent = ({ hamster, alert, alertMessage}) => {
+    const [defeated, setDefeated] = useState([])
+
 
     function deleteHamster() {
         axios.delete(`/hamsters/${hamster.id}`)
@@ -13,6 +16,15 @@ const GalleryContent = ({ hamster, alert, alertMessage}) => {
         alertMessage(`${hamster.name} do u want to delete from Database.`)
         alert(true)
     }
+
+    function matchWinners() {
+        axios.get(`/matchWinner/${hamster.id}`)
+            .then(response => setDefeated(response.data))
+    }
+
+    let loserIdList = defeated.map(match => match.loserId)
+
+    let uniqueLoserIdList = [...new Set(loserIdList)];
 
     return (
 
@@ -32,6 +44,10 @@ const GalleryContent = ({ hamster, alert, alertMessage}) => {
                         <li>Favorite Food : {hamster.favFood}</li>
                     </ul>
                 </div>
+                <div onClick={() => matchWinners()} className="match-winners">
+                Has defeated + {uniqueLoserIdList.map(loser => <WinList key={loser} loser={loser} />)}
+                </div>
+
                 <div id="erase-btn" >
                     <button onClick={(e) => {e.preventDefault(); deleteHamster()}}>Delete {hamster.name}</button>
                 </div>
